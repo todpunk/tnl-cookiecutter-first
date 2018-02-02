@@ -1,0 +1,6 @@
+pyramid
+pyramid-jinja2
+pyramid-sqlalchemy
+cornice
+ujson
+waitress

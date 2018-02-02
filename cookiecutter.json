@@ -1,0 +1,17 @@
+{    
+  "full_name": "Tod Hansmann",
+  "email": "githubpub@todandlorna.com",
+  "website": "http://example.com",
+  "github_username": "TodPunk",
+  "project_name": "{{cookiecutter.app_name}}",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "A really simple cookie cutter learning project for a pyramid backed web JSON API/app",
+  "pypi_username": "{{ cookiecutter.github_username }}",
+  "version": "0.1.0",
+  "create_author_file": "y",
+  "open_source_license": ["WTFPL"],
+  "dbuser": "dbuser",
+  "dbpass": "dbpass",
+  "dbname": "{{cookiecutter.project_slug}}",
+  "testdbname": "{{cookiecutter.project_slug}}test"
+}

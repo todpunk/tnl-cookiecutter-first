@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PhoneJanitor App</title>
+  <meta name="description" content="The most awesome app ever, of course">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/build/app/css/combined_prefixed.min.css"/>
+  <!-- <script src="/static/tracked_bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script> -->
+</head>
+<body>
+    <div id="note">
+        <div><div id="notemessage">&nbsp;</div><a id="close">[close]</a></div>
+    </div>
+	<div className="App"></div>
+<!--    Server Injected Values -->
+    <script type="text/javascript">
+		var some_key = '{{ some_key }}';
+		var note_timer;
+		function showNotification(message, waitTime) {
+			// Get the snackbar DIV
+			var x = document.getElementById("note");
+			var notemessage = document.getElementById("notemessage");
+			notemessage.innerText = message;
+
+			// Add the "show" class to DIV
+			x.classList.remove("fade");
+			x.classList.add("show");
+
+			if (note_timer) {
+			    clearTimeout(note_timer);
+			}
+
+			// After 5 (or passed in val) seconds, remove the show class from DIV
+			note_timer = setTimeout(function(){
+				x.classList.remove("show");
+				x.classList.add("fade");
+			}, waitTime || 5000);
+		}
+		close = document.getElementById("close");
+		close.addEventListener('click', function() {
+			var note = document.getElementById("note");
+			clearTimeout(note_timer);
+			//note.style.display = 'none';
+			note.classList.remove("show");
+			note.classList.add("fade");
+		}, false);
+
+    </script>
+<!--    /Server Injected Values -->
+    <!--    Dependencies-->
+    <script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+
+{% if is_dev %}
+
+    <script src="/static/js/app.js"></script>
+
+<!--    Services-->
+    <script src="/static/js/services/accountservice.js"></script>
+<!--    /Services-->
+
+<!--    Components-->
+    <script src="/static/js/components/contact_components.js"></script>
+<!--    /Components-->
+
+<!--    Filters-->
+    <script src="/static/js/filters.js"></script>
+<!--    /Filters-->
+
+{% else %}
+    <script src="/static/build/app/js/app.min.js"></script>
+    <script src="/static/build/templates/templates.min.js"></script>
+{% endif %}
+</body>
+</html>
