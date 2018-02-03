@@ -144,7 +144,7 @@ def includeme(config):
     """
     Initialize the model for a Pyramid app.
 
-    Activate this setup using ``config.include('{{project}}.models')``.
+    Activate this setup using ``config.include('modulename.models')``.
     :param config: a pyramid config
     """
     settings = config.get_settings()
