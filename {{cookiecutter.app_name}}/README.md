@@ -1,5 +1,5 @@
 # tnl-cookiecutter-first
-{{cookiecutter.project_short_description}
+{{cookiecutter.project_short_description}}
 
 This should give you everything you need to access a database with a JSON API you can login against and get a token for.  Default login is siteadmin:ChangeMe! with the exclamation point in there.
 
