@@ -18,5 +18,5 @@ CREATE TABLE sessions (
 	user_id          bigint REFERENCES pj.users(id),
 	started          timestamp default current_timestamp,
 	lastactive       timestamp default current_timestamp,
-	token            text NOT NULL
+	token            text UNIQUE NOT NULL
 );
